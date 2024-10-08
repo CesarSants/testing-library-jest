@@ -3,6 +3,7 @@ import {
   configureStore,
   PreloadedState
 } from '@reduxjs/toolkit'
+
 import carrinhoReducer from './reducers/carrinho'
 import api from '../services/api'
 
@@ -12,7 +13,7 @@ const rootReducer = combineReducers({
 })
 
 export function configuraStore(preloadedState?: PreloadedState<RootState>) {
-  return configuraStore({
+  return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(api.middleware),
